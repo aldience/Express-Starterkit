@@ -1,0 +1,48 @@
+1. Membuat Folder Backend
+2. masuk ke dalam folder 
+3. inisialisasi folder dengan perintah "npm init -y ",akan tersintal pakage-pakage nodejs antara lain file package.json
+4. install depedency yang dibutuhkan dengan perintah "npm install argon2 connect-session-sequelize cors dotenv express express-session mysql2 restify sequelize"
+   Tentu, berikut adalah penjelasan singkat tentang kegunaan setiap dependency yang disebutkan:
+    1. argon2: Library untuk hashing password yang aman dan tahan terhadap serangan brute force. Ini adalah salah satu pilihan terbaik untuk menyimpan password pengguna secara aman.
+    2. connect-session-sequelize: Middleware untuk menghubungkan sesi Express dengan Sequelize, sehingga Anda dapat menyimpan sesi pengguna di database menggunakan Sequelize.
+    3. cors: Middleware untuk menangani CORS (Cross-Origin Resource Sharing) dalam aplikasi Express. Ini memungkinkan server untuk mengizinkan permintaan dari domain yang berbeda.
+    4. dotenv: Library untuk memuat variabel lingkungan dari file `.env` ke dalam aplikasi Node.js. Ini memungkinkan Anda untuk menyimpan konfigurasi aplikasi, seperti kredensial database, dalam file terpisah dan aman.
+    5. express: Framework web Node.js yang populer untuk membuat aplikasi web dan API dengan mudah dan cepat.
+    6. express-session: Middleware untuk mengelola sesi pengguna di aplikasi Express. Ini memungkinkan Anda untuk membuat dan mengelola sesi pengguna, yang sering digunakan untuk otentikasi dan penanganan state.
+    7. mysql2: Klien MySQL untuk Node.js yang mendukung fitur-fitur terbaru dari MySQL. Ini digunakan untuk berinteraksi dengan database MySQL dari aplikasi Node.js.
+    8. restify: Framework web Node.js yang dirancang khusus untuk membangun layanan web RESTful. Ini memberikan fokus yang lebih pada pengembangan API REST daripada aplikasi web tradisional.
+    9. sequelize: ORM (Object-Relational Mapping) untuk Node.js yang mendukung berbagai macam database relasional seperti MySQL, PostgreSQL, SQLite, dan lainnya. Ini menyediakan antarmuka yang mudah digunakan untuk berinteraksi dengan database menggunakan model-data.
+5. Buat file dengan nama index.js yang nanti akan digunakan sebagai file root project kita 
+6. lakukan import depedency yang telah di install antara lain :
+    import express from 'express'
+    import cors from 'cors'
+    import session from 'express-session'
+    import Sequlizestore from 'connect-session-sequelize'
+    import dotenv from 'dotenv'
+7.  Setting Express js 
+    1.const app = express() //memanggil modul express yang telah di import
+    2.const port = 3000 //inisialisasi port yang akan digunakan 
+    3.app.listen(port, () => {
+      console.log(`Example app listening on port ${port}`)
+      }) //digunakan untuk membuat server HTTP berjalan pada port tertentu dan mendengarkan permintaan HTTP yang masuk
+8.  Membuat Folder , router , controller, Middleware ,model dan config 
+    1. Folder Model: Di sini Anda biasanya menyimpan definisi model data aplikasi Anda. Model ini mewakili entitas atau objek dalam domain bisnis Anda. Mereka sering digunakan untuk berinteraksi dengan basis data, termasuk membuat, membaca, memperbarui, dan menghapus data. Contoh model dapat mencakup definisi untuk pengguna, produk, pesanan, dan lain-lain.
+    2. Folder Controller: Ini adalah tempat Anda menyimpan logika aplikasi dan fungsionalitas yang mengendalikan aliran data antara model dan tampilan. Kontroler mengatur permintaan dari pengguna dan menanggapi permintaan dengan mengelola model yang sesuai dan menghasilkan respon yang sesuai. Mereka bertanggung jawab untuk memvalidasi data, memproses logika bisnis, dan menghasilkan respons HTTP.
+    3. Folder Router: Di sini Anda mendefinisikan rute atau endpoint API HTTP untuk aplikasi Anda. Router menghubungkan permintaan HTTP ke fungsi kontroler yang sesuai untuk menangani permintaan tersebut. Ini membantu dalam mengatur alur navigasi dan mengelola permintaan masuk dari klien.
+    4. Folder Middleware: Middleware adalah fungsi-fungsi perantara yang berjalan di antara permintaan masuk dan respons yang dikirim oleh aplikasi Anda. Mereka digunakan untuk melakukan berbagai tugas, seperti otentikasi pengguna, validasi input, logging, mengatur header HTTP, dan lain-lain. Middleware memungkinkan Anda untuk memisahkan logika terkait HTTP dari logika bisnis inti Anda.
+    5. Folder Config: Di sini Anda menyimpan konfigurasi aplikasi Anda, seperti pengaturan database, variabel lingkungan, kunci API, dan konfigurasi lainnya yang diperlukan oleh aplikasi Anda. Ini memungkinkan Anda untuk dengan mudah mengatur dan mengelola konfigurasi aplikasi Anda dari satu tempat.
+9. Masuk ke folder config buat file dengan nama db.js yang akan digunakan untuk mengatur koneksi ke database mysql 
+   1. import mysql2 from 'mysql2'
+      export const connection = mysql2.createConnection({
+        host: 'localhost',
+        user: 'root',
+        database: 'fullstack-express-react',
+        password: ''
+      })
+      connection.connect(function (err) {
+      if (err) throw err
+      console.log('Connected!')
+      })
+      export default connection
+    2. Jalankan nodemon index.js lalu periksa console (Example app listening on port 3001 Connected!) 
+10. 

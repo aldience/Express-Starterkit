@@ -1,0 +1,113 @@
+// Register User
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "name": "user",
+    "email": "user@gmail.com",
+    "password": "useruser",
+    "confpassword": "useruser",
+    "role": "admin"
+}
+
+###
+
+// GET User By Id
+GET http://localhost:3000/users/5082feae-f2e3-4ea9-87e1-6752d3b08965
+Content-Type: application/json
+
+###
+
+// GET All Users
+GET http://localhost:3000/users
+Content-Type: application/json
+
+###
+
+// Update Users By Id
+PATCH http://localhost:3000/users/5082feae-f2e3-4ea9-87e1-6752d3b08965
+Content-Type: application/json
+
+{
+    "name": "user",
+    "email": "user@gmail.com",
+    "password": "useruser",
+    "confpassword": "useruser",
+    "role": "user"
+}
+
+###
+
+// Delete User By Id
+DELETE http://localhost:3000/users/adfbdd99-e316-439a-ae77-56e75b63c25f
+Content-Type: application/json
+
+###
+
+// Login Admin
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "password": "adminadmin"
+}
+
+###
+
+// Login User
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "user@gmail.com",
+    "password": "useruser"
+}
+
+###
+
+// Get Logged-in User's Profile
+GET http://localhost:3000/me
+Content-Type: application/json
+
+
+###
+
+// Logout
+DELETE http://localhost:3000/logout
+
+###
+//Get All Produk
+GET http://localhost:3000/produk
+Content-Type: application/json
+
+
+###
+// POST data Produk 
+POST http://localhost:3000/produk
+Content-Type: application/json
+
+{
+   "name": "produk2",
+   "price":900
+}
+###
+// GET data Produk By ID 
+GET  http://localhost:3000/produk/579219e1-cf23-460b-a2e0-c0b9f996ca24
+Content-Type: application/json
+
+###
+
+// Update data Produk By ID 
+PATCH http://localhost:3000/produk/4597e40a-97d5-4333-a25b-0a5eb5cd827a
+Content-Type: application/json
+
+{
+   "name": "produkid1",
+   "price":900
+}
+###
+
+// GET data Produk By ID 
+DELETE http://localhost:3000/produk/4597e40a-97d5-4333-a25b-0a5eb5cd827a
+Content-Type: application/json
